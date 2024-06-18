@@ -19,6 +19,33 @@ If you are new, there's also a simpler introduction in the
 Applied changes from
 https://github.com/actions/typescript-action/compare/main...ncalteen:typescript-esm-action:main
 
+based on the issue: https://github.com/actions/typescript-action/issues/883.
+
+After importing graphql:
+
+```ts
+import { graphql } from '@octokit/graphql'
+```
+
+error:
+
+```ts
+SyntaxError: Cannot use import statement outside a module
+
+    > 1 | import { graphql } from '@octokit/graphql'
+```
+
+[Troubleshooting guide](https://github.com/kulshekhar/ts-jest/blob/main/TROUBLESHOOTING.md) from `ts-jest`: 
+
+> In this case some-module is the problem and needs to be transformed. By adding the following line to the configuration file it will tell Jest which modules shouldnt be ignored during the transformation step:
+
+```ts
+module.exports = {
+  ...
+  transformIgnorePatterns: ["node_modules/(?!(some-module|another-module))"]
+};
+```
+
 ## Create Your Own Action
 
 To create your own action, you can use this repository as a template! Just

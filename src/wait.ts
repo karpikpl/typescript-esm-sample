@@ -1,3 +1,5 @@
+import { graphql } from '@octokit/graphql'
+
 /**
  * Wait for a number of milliseconds.
  * @param milliseconds The number of milliseconds to wait.
@@ -7,6 +9,10 @@ export async function wait(milliseconds: number): Promise<string> {
   return new Promise(resolve => {
     if (isNaN(milliseconds)) {
       throw new Error('milliseconds not a number')
+    }
+
+    if (!graphql) {
+      throw new Error('graphql not found')
     }
 
     setTimeout(() => resolve('done!'), milliseconds)
