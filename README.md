@@ -35,9 +35,12 @@ SyntaxError: Cannot use import statement outside a module
     > 1 | import { graphql } from '@octokit/graphql'
 ```
 
-[Troubleshooting guide](https://github.com/kulshekhar/ts-jest/blob/main/TROUBLESHOOTING.md) from `ts-jest`: 
+[Troubleshooting guide](https://github.com/kulshekhar/ts-jest/blob/main/TROUBLESHOOTING.md)
+from `ts-jest`:
 
-> In this case some-module is the problem and needs to be transformed. By adding the following line to the configuration file it will tell Jest which modules shouldnt be ignored during the transformation step:
+> In this case some-module is the problem and needs to be transformed. By adding
+> the following line to the configuration file it will tell Jest which modules
+> shouldnt be ignored during the transformation step:
 
 ```ts
 module.exports = {
